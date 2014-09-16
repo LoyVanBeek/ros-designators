@@ -41,6 +41,9 @@ class Designator(object):
 		"""Return True if the call was successfully cancelled or finished running."""
 		raise NotImplementedError()
 
+	def exception(timeout=None):
+		"""Return the exception raised by the call. If the call hasn’t yet completed then this method will wait up to timeout seconds. """
+
 	def result(timeout=None):
 		"""Return the value returned by the call."""
 		return self.resolve()
@@ -49,6 +52,21 @@ class Designator(object):
 		"""Attaches the callable fn to the future. fn will be called, with the future as its only argument, when the future is cancelled or finishes running."""
 		raise NotImplementedError()
 
+class PredefinedDesignator(Designator):
+	"""For the occasion a value is already know at runtime but still should still be compatible with functions that use Designators"""
+
+	def __init__(self, value):
+		"""Set the value of this designator to 'value' at 'write-time', .g. when it is defined:
+		>>> designator = PredefinedDesignator("Hello")
+		>>> designator.resolve()
+		'Hello'
+		"""
+		super(PredefinedDesignator, self).__init__()
+
+		self.value = value
+
+	def resolve(self):
+		return self.value
 
 class SettableDesignator(Designator):
 	"""SettableDesignator can be set to a value, which is then returned by resolve().
