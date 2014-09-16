@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+  <name>ros-designators</name>
+  <version>0.0.0</version>
+  <description>ROS designators are a way to defer the full resolution of a robot goal to runtime.
+    E.g. For a robot to drive to some person, then first the location of that person may be known.
+    A designator encapsulates the process to resolve or query the world state and get, for example, a location.</description>
+
+  <maintainer email="loy.vanbeek@gmail.com">amigo</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://github.com/LoyVanBeek/ros-designators</url>
+
+  <author email="loy.vanbeek@gmail.com">Loy van Beek</author>
+
+  <!-- TODO: Use test_depend for packages you need only for testing: -->
+  <!--   <test_depend>gtest</test_depend> -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
