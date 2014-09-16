@@ -24,6 +24,32 @@ class Designator(object):
 		"""Returns whatever the designator should resolve to"""
 		raise NotImplementedError()
 
+	#Implement the same interface as a concurrent.Future support, because in some way, a Designator is kind of a Future.
+	def cancel():
+		"""Attempt to cancel the call."""
+		raise NotImplementedError()
+
+	def cancelled():
+		"""Return True if the call was successfully cancelled."""
+		raise NotImplementedError()
+
+	def running():
+		"""Return True if the call is currently being executed and cannot be cancelled."""
+		raise NotImplementedError()
+
+	def done():
+		"""Return True if the call was successfully cancelled or finished running."""
+		raise NotImplementedError()
+
+	def result(timeout=None):
+		"""Return the value returned by the call."""
+		return self.resolve()
+
+	def add_done_callback(fn):
+		"""Attaches the callable fn to the future. fn will be called, with the future as its only argument, when the future is cancelled or finishes running."""
+		raise NotImplementedError()
+
+
 class SettableDesignator(Designator):
 	"""SettableDesignator can be set to a value, which is then returned by resolve().
 	Can be used as a passthrough between otherwise independent objects"""
