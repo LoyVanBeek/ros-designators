@@ -21,6 +21,31 @@ class Designator(object):
 		pass
 
 	def resolve(self):
-		"""Returns whatever the"""
+		"""Returns whatever the designator should resolve to"""
 		raise NotImplementedError()
 
+class SettableDesignator(Designator):
+	"""SettableDesignator can be set to a value, which is then returned by resolve().
+	Can be used as a passthrough between otherwise independent objects"""
+
+	def __init__(self):
+		super(SettableDesignator, self).__init__()
+
+		self.value = None
+
+	def set(self, value):
+		"""Set the value of this designator to 'value'
+		>>> designator = SettableDesignator()
+		>>> designator.set("Hello")
+		>>> designator.resolve()
+		'Hello'
+		"""
+
+		self.value = value
+
+	def resolve(self):
+		return self.value
+
+if __name__ == "__main__":
+	import doctest
+	doctest.testmod()
