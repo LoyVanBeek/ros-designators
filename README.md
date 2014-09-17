@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/LoyVanBeek/ros-designators.svg?branch=master)](https://travis-ci.org/LoyVanBeek/ros-designators)
 ros-designators
 ===============
 
