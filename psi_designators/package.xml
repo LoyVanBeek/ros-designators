@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>psi_designators</name>
+  <version>0.0.0</version>
+  <description>The psi_designators package provides designators that encapsulate psi queries.
+    A Psi query is a Prolog-query posed to a reasoning engine.
+    Sometimes, such a reasoner provides multiple answers for a query, of which only one is needed.
+    A PsiDesignator encapsulates the process posing the query, filtering, sorting and selecting an answer and possibly converting it to some datatype as well.
+  </description>
+
+  <maintainer email="loy.vanbeek@gmail.com">amigo</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">https://github.com/LoyVanBeek/ros-designators</url>
+
+  <author email="loy.vanbeek@gmail.com">Loy van Beek</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>designators</build_depend>
+  <run_depend>designators</run_depend>
+
+  <build_depend>psi</build_depend>
+  <run_depend>psi</run_depend>
+
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+</package>
