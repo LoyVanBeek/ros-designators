@@ -22,7 +22,7 @@ class PsiDesignator(designators.Designator):
 		self.criteriafuncs  = criteriafuncs or []
 
 	def resolve(self):
-		"""Returns whatever the designator should resolve to"""
+		"""Returns an answer from the reasoner that satisfies some criteria and is the best according to some function and sorting"""
 		answers = self.reasoner.query(self.query)
 
 		rospy.loginfo("{0} answers before filtering: {1}".format(len(answers), pprint.pformat(answers)))
